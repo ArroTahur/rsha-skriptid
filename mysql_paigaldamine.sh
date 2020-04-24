@@ -1,8 +1,8 @@
 MYSQL=$(dpkg-query -W -f='${Status}' mysql-server 2>/dev/null | grep -c 'ok installed')
 
 if [ $MYSQL -eq 0 ]; then
-	echo "MySQL paigaldamine"
-	apt-get install mysql-server
+	echo "Paigaldame MySQL ja vajalikud lisad"
+	apt install mysql-server
 	echo "MySQL on paigaldatud"
 	touch $HOME/.my.cnf
 	echo "[client]" >> $HOME/.my.cnf
